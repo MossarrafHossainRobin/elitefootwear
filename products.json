@@ -1,0 +1,26 @@
+[
+    {
+        "id": 100,
+        "name": "Apex Men's Casual Shoe",
+        "price": "3490",
+        "description": "Apex Men's Casual Shoe blends simplicity with comfort. The leather upper adds a refined touch, while the TPR sole provides durability and grip. Designed without laces for easy wear, it\u2019s a go-to choice for effortless everyday style.\r\nFeatures:\r\n\r\nGenuine leather upper for a polished look.\r\nLaceless design for convenient slip-on wear.\r\nTPR sole ensures flexibility and durability.\r\nIdeal for everyday casual wear.",
+        "image": "uploads\/681b447cd6f22_a6.jpg",
+        "entry_time": "2025-05-07T17:30",
+        "days": "Wednesday",
+        "quantity": "30",
+        "size": "40",
+        "buying_price": "2890"
+    },
+    {
+        "id": 101,
+        "name": "Sprint Men's Sports Shoe",
+        "price": "4990",
+        "description": "Sprint Men's Sports Shoe is designed for peak performance, featuring a breathable mesh upper that ensures ventilation and comfort during intense workouts. The moisture-wicking lining keeps your feet fresh, while the EVA outsole provides cushioning to reduce impact, making this shoe ideal for high-intensity activities.\r\nFeatures",
+        "image": "uploads\/681b44e6bd710_a1.jpg",
+        "entry_time": "2025-05-07T17:32",
+        "days": "Wednesday",
+        "quantity": "45",
+        "size": "40",
+        "buying_price": "3500"
+    }
+]

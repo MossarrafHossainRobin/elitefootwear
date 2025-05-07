@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register - Elite Footwear</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <style>
+    body {
+      background: linear-gradient(to right, #f857a6, #ff5858);
+      font-family: 'Poppins', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .register-container {
+      max-width: 500px;
+      width: 100%;
+      padding: 2rem;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+
+    .register-logo {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #f857a6;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+      color: #333;
+    }
+
+    .motto {
+      font-size: 0.9rem;
+      color: #888;
+      margin-bottom: 1.5rem;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      color: #f857a6;
+    }
+
+    label {
+      font-weight: 500;
+    }
+
+    .form-control {
+      border-radius: 10px;
+    }
+
+    #register-btn {
+      margin-top: 1rem;
+      background: #f857a6;
+      border: none;
+      border-radius: 10px;
+      padding: 0.5rem 1rem;
+      font-weight: bold;
+      color: white;
+      transition: background 0.3s ease;
+    }
+
+    #register-btn:hover {
+      background: #e64c8c;
+    }
+
+    .form-check-label {
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    .toggle-password {
+      font-size: 0.8rem;
+      color: #007bff;
+      cursor: pointer;
+      user-select: none;
+      margin-top: 5px;
+      display: inline-block;
+    }
+
+    .message.error {
+      margin-top: 1rem;
+      color: red;
+      font-size: 0.9rem;
+    }
+
+    .message.success {
+      margin-top: 1rem;
+      color: green;
+      font-size: 0.9rem;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="register-container">
+    <img src="elite.png" alt="Elite Footwear Logo" class="register-logo" />
+    <h1>Elite Footwear</h1>
+    <p class="motto">Exclusive, high-quality footwear for everyone</p>
+    <h2>Register</h2>
+
+    <form id="register-form">
+      <!-- First Name and Last Name -->
+      <div class="mb-3 text-start">
+        <label for="firstName" class="form-label">First Name:</label>
+        <input type="text" id="firstName" class="form-control" required placeholder="Enter your first name">
+      </div>
+      <div class="mb-3 text-start">
+        <label for="lastName" class="form-label">Last Name:</label>
+        <input type="text" id="lastName" class="form-control" required placeholder="Enter your last name">
+      </div>
+
+      <!-- Username -->
+      <div class="mb-3 text-start">
+        <label for="username" class="form-label">Username:</label>
+        <input type="text" id="username" class="form-control" required placeholder="Enter your username">
+      </div>
+
+      <!-- Email -->
+      <div class="mb-3 text-start">
+        <label for="email" class="form-label">Email:</label>
+        <input type="email" id="email" class="form-control" required placeholder="Enter your email">
+      </div>
+
+      <!-- Phone -->
+      <div class="mb-3 text-start">
+        <label for="phone" class="form-label">Phone:</label>
+        <input type="tel" id="phone" class="form-control" required placeholder="Enter your phone number">
+      </div>
+
+      <!-- District -->
+      <div class="mb-3 text-start">
+        <label for="district" class="form-label">District:</label>
+        <input type="text" id="district" class="form-control" required placeholder="Enter your district">
+      </div>
+
+      <!-- Role -->
+      <div class="mb-3 text-start">
+        <label for="role" class="form-label">Register As:</label>
+        <select id="role" class="form-select" required>
+          <option value="">Select Role</option>
+          <option value="user">User</option>
+          <option value="manager">Manager</option>
+          <option value="supervisor">Supervisor</option>
+          <option value="assitant-supervisor">Assistant Supervisor</option>
+          <option value="assitant-supervisor">Sales-Excutive</option>
+          <option value="assitant-supervisor">Operator</option>
+
+          
+        </select>
+      </div>
+
+      <!-- Password -->
+      <div class="mb-1 text-start">
+        <label for="password" class="form-label">Password:</label>
+        <input type="password" id="password" class="form-control" required placeholder="Enter your password">
+        <span id="togglePassword" class="toggle-password">Show Password</span>
+      </div>
+
+      <!-- Show password option -->
+      <div class="form-check text-start my-2">
+        <input class="form-check-input" type="checkbox" id="termsCheck">
+        <label class="form-check-label" for="termsCheck">I accept the Terms and Conditions</label>
+      </div>
+
+      <button type="submit" id="register-btn" class="btn w-100">Register</button>
+      <div id="register-message" class="message" style="display: none;"></div>
+    </form>
+  </div>
+
+  <script>
+    // Show/Hide Password
+    const togglePassword = document.getElementById("togglePassword");
+    const passwordField = document.getElementById("password");
+
+    togglePassword.addEventListener("click", () => {
+      const type = passwordField.type === "password" ? "text" : "password";
+      passwordField.type = type;
+      togglePassword.textContent = type === "password" ? "Show Password" : "Hide Password";
+    });
+
+    // Form Validation
+    document.getElementById("register-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const firstName = document.getElementById("firstName").value.trim();
+      const lastName = document.getElementById("lastName").value.trim();
+      const username = document.getElementById("username").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const district = document.getElementById("district").value.trim();
+      const role = document.getElementById("role").value;
+      const password = passwordField.value.trim();
+      const termsCheck = document.getElementById("termsCheck").checked;
+
+      // Form validation
+      let errorMessages = [];
+
+      if (!firstName || !lastName || !username || !email || !phone || !district || !role || !password || !termsCheck) {
+        errorMessages.push("Please fill all required fields.");
+      }
+
+      if (!/^[a-zA-Z ]+$/.test(firstName)) {
+        errorMessages.push("First Name should only contain letters.");
+      }
+
+      if (!/^[a-zA-Z ]+$/.test(lastName)) {
+        errorMessages.push("Last Name should only contain letters.");
+      }
+
+      if (!/^\S+@\S+\.\S+$/.test(email)) {
+        errorMessages.push("Please enter a valid email address.");
+      }
+
+      if (!/^\d{10}$/.test(phone)) {
+        errorMessages.push("Please enter a valid phone number.");
+      }
+
+      if (password.length < 6) {
+        errorMessages.push("Password must be at least 6 characters long.");
+      }
+
+      if (errorMessages.length > 0) {
+        document.getElementById("register-message").textContent = errorMessages.join(" ");
+        document.getElementById("register-message").className = "message error";
+        document.getElementById("register-message").
+        style.display = "block";
+} else {
+// Handle successful form submission (Simulated)
+document.getElementById("register-message").textContent = "Registration successful! Redirecting...";
+document.getElementById("register-message").className = "message success";
+document.getElementById("register-message").style.display = "block";
+setTimeout(() => {
+      window.location.href = "login.html"; // Redirect to login after successful registration
+    }, 1500);
+  }
+});

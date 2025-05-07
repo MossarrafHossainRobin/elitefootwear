@@ -1,0 +1,417 @@
+/* --- Google Font Import --- */
+/* Assuming fonts are linked in HTML <head> */
+
+/* --- General & Variables --- */
+:root {
+    --primary-color: #6a11cb; /* Deep purple */
+    --secondary-color: #2575fc; /* Bright blue */
+    --accent-color-1: #00b09b; /* Teal */
+    --accent-color-2: #96c93d; /* Lime green */
+    --text-color: #333;
+    --text-color-light: #555;
+    --bg-color: #f4f7f6; /* Slightly off-white bg */
+    --card-bg: #ffffff;
+    --nav-height: 65px; /* Navigation bar height */
+    --border-radius-sm: 5px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+    --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --shadow-medium: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Apply smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding-top: var(--nav-height); /* Add padding for fixed nav */
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-weight: 400;
+  }
+  
+  h1, h2, h3 {
+      font-weight: 600;
+      margin-top: 0;
+  }
+  
+  /* --- Navigation Bar --- */
+  .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: var(--nav-height);
+      background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+      color: white;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+      z-index: 1000; /* Ensure it stays on top */
+      display: flex;
+      justify-content: center; /* Center content */
+  }
+  
+  .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      max-width: 1400px; /* Limit max width */
+      padding: 0 25px; /* Padding on sides */
+  }
+  
+  .nav-brand a {
+      color: white;
+      text-decoration: none;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6em;
+      font-weight: 700;
+      transition: transform 0.2s ease;
+  }
+  .nav-brand a:hover {
+      transform: scale(1.05);
+  }
+  
+  .nav-links a {
+      color: rgba(255, 255, 255, 0.85);
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 0.95em;
+      font-weight: 400;
+      padding: 8px 0; /* Add padding for larger click area */
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s ease, border-bottom-color 0.2s ease;
+  }
+  
+  .nav-links a:hover,
+  .nav-links a:focus { /* Style focus state too */
+      color: white;
+      border-bottom-color: rgba(255, 255, 255, 0.8);
+      outline: none; /* Remove default focus outline */
+  }
+  /* Style for 'active' link (can be added with JS later) */
+  .nav-links a.active {
+      color: white;
+      font-weight: 600;
+      border-bottom-color: white;
+  }
+  
+  
+  .nav-search input[type="search"] {
+      padding: 8px 12px;
+      border-radius: var(--border-radius-md);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      background-color: rgba(255, 255, 255, 0.1);
+      color: white;
+      font-size: 0.9em;
+      min-width: 200px; /* Give it some base width */
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+  
+  .nav-search input[type="search"]::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+  }
+  
+  .nav-search input[type="search"]:focus {
+      background-color: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.8);
+      outline: none;
+  }
+  
+  .nav-logout #logout-btn {
+      background-color: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      color: white;
+      padding: 8px 18px;
+      font-size: 0.9em;
+      border-radius: var(--border-radius-md);
+      cursor: pointer;
+      transition: background-color 0.2s ease, transform 0.1s ease;
+  }
+  
+  .nav-logout #logout-btn:hover {
+      background-color: rgba(255, 255, 255, 0.25);
+      transform: translateY(-1px);
+  }
+  
+  /* --- Main Content Area --- */
+  .main-content {
+      padding: 30px; /* Spacing around content */
+      max-width: 1400px; /* Match nav max width */
+      margin: 0 auto; /* Center content */
+  }
+  
+  /* --- Card Styling --- */
+  .card {
+      background: var(--card-bg);
+      padding: 25px 30px;
+      margin-bottom: 30px; /* Space between cards */
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow-light);
+      border-left: 5px solid transparent; /* For subtle section indication */
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+  .card:hover {
+       box-shadow: var(--shadow-medium);
+       transform: translateY(-3px); /* Slight lift on hover */
+  }
+  
+  /* Add accent borders to cards */
+  .manage-stock-card { border-left-color: var(--secondary-color); }
+  .record-sale-card { border-left-color: var(--accent-color-2); }
+  .view-stock-card { border-left-color: var(--accent-color-1); }
+  .sales-log-card { border-left-color: var(--primary-color); }
+  
+  
+  .card h2 {
+      font-family: 'Poppins', sans-serif; /* Use Poppins for consistency */
+      font-weight: 600;
+      font-size: 1.6em;
+      margin-bottom: 25px;
+      color: var(--text-color);
+      border-bottom: 1px solid #eee;
+      padding-bottom: 10px;
+      display: flex; /* Align icon and text */
+      align-items: center;
+  }
+  
+  .section-icon {
+      margin-right: 12px;
+      font-size: 1.2em; /* Make icon slightly larger */
+  }
+  
+  /* Input Fields & Labels within Cards */
+  label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      font-size: 0.9em;
+      color: var(--text-color-light);
+  }
+  
+  input[type="text"],
+  input[type="number"],
+  input[type="password"], /* Ensure password styled if used */
+  select {
+      width: 100%;
+      padding: 12px 15px;
+      margin-bottom: 20px; /* Increase space below inputs */
+      border: 1px solid #dcdcdc;
+      border-radius: var(--border-radius-md);
+      box-sizing: border-box;
+      font-size: 1em;
+      font-family: 'Poppins', sans-serif;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  input:focus, select:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba(106, 17, 203, 0.15);
+      outline: none;
+  }
+  
+  /* Buttons within Cards */
+  .action-button { /* Style for Add/Record buttons */
+      padding: 12px 25px;
+      font-size: 1.05em;
+      font-weight: 600;
+      color: #fff;
+      background: linear-gradient(90deg, var(--accent-color-1), var(--accent-color-2));
+      border: none;
+      border-radius: var(--border-radius-md);
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.3s ease, background 0.3s ease;
+      display: inline-block; /* Fit content width */
+  }
+  
+  .action-button:hover {
+      background: linear-gradient(90deg, #00a08a, #88b831); /* Darker gradient */
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      transform: translateY(-2px);
+  }
+  
+  /* Messages (Success/Error) */
+  .message {
+      margin-top: 15px;
+      padding: 12px 15px; /* Increase padding */
+      border-radius: var(--border-radius-sm);
+      min-height: 1.2em;
+      box-sizing: border-box;
+      text-align: center;
+      font-size: 0.95em;
+      display: none; /* Hide by default, JS will show */
+  }
+  .message.success {
+      background-color: #e6f7f4; color: #00695c; border: 1px solid #b2dfdb; display: block;
+  }
+  .message.error {
+      background-color: #fdecea; color: #c62828; border: 1px solid #ffcdd2; display: block;
+  }
+  
+  /* Stock Table Specifics */
+  .table-container {
+      overflow-x: auto; /* Allow horizontal scroll on small screens */
+      margin-top: 20px;
+  }
+  
+  #stock-table {
+      width: 100%;
+      border-collapse: collapse; /* Use collapse for cleaner lines */
+  }
+  
+  #stock-table th,
+  #stock-table td {
+      border: 1px solid #e0e0e0;
+      padding: 12px 15px; /* More padding */
+      text-align: left;
+      vertical-align: middle;
+      font-size: 0.95em;
+  }
+  
+  #stock-table th {
+      background-color: #f8f9fa; /* Very light grey header */
+      font-weight: 600;
+      color: var(--text-color-light);
+      white-space: nowrap; /* Prevent headers from wrapping */
+  }
+  
+  #stock-table tbody tr {
+      transition: background-color 0.2s ease;
+  }
+  
+  #stock-table tbody tr:nth-child(even) {
+      background-color: #fdfdfd; /* Subtle striping */
+  }
+  
+  #stock-table tbody tr:hover {
+      background-color: #eef7ff; /* Light blue hover */
+  }
+  
+  #stock-table .delete-btn {
+      background-color: #e74c3c;
+      padding: 6px 12px;
+      font-size: 0.85em;
+      color: white;
+      border: none;
+      border-radius: var(--border-radius-sm);
+      cursor: pointer;
+      transition: background-color 0.2s ease, transform 0.1s ease;
+  }
+  #stock-table .delete-btn:hover {
+      background-color: #c0392b;
+      transform: scale(1.05);
+  }
+  
+  /* Summary divs below tables */
+  #stock-summary, #sales-summary {
+      margin-top: 15px;
+      margin-bottom: 10px; /* Add space below summary */
+      font-weight: 600;
+      text-align: right;
+      padding-right: 10px;
+      font-size: 1.1em;
+      color: var(--primary-color);
+  }
+  #stock-summary span, #sales-summary span {
+      color: var(--text-color); /* Normal color for value */
+      font-weight: 700;
+  }
+  
+  /* Sales Log List */
+  #sales-log-list {
+      list-style: none;
+      padding: 0;
+      max-height: 400px;
+      overflow-y: auto;
+      border: 1px solid #eee;
+      margin-top: 10px;
+      border-radius: var(--border-radius-md);
+      background-color: #fdfdfd;
+  }
+  #sales-log-list li {
+      padding: 10px 15px;
+      border-bottom: 1px solid #eee;
+      font-size: 0.9em;
+      color: var(--text-color-light);
+  }
+  #sales-log-list li:last-child {
+      border-bottom: none;
+  }
+  #sales-log-list li:hover {
+      background-color: #f5f5f5; /* Subtle hover for log entries */
+  }
+  #no-sales-log-entry, #no-stock-row td, #no-search-results-row td {
+      text-align: center;
+      padding: 20px;
+      color: var(--text-color-light);
+      font-style: italic;
+  }
+  
+  /* --- Login Page Styles (Keep from previous version) --- */
+  .login-body {
+      /* ... (previous login body styles) ... */
+       background: linear-gradient(135deg, #7f7fd5, #86a8e7, #91eae4);
+       display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; box-sizing: border-box;
+  }
+  .login-container {
+       /* ... (previous login container styles) ... */
+       max-width: 420px; width: 100%; text-align: center; background-color: rgba(255, 255, 255, 0.98); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); border-radius: 15px; border-top: 5px solid #6a11cb; animation: fadeIn 0.5s ease-out;
+  }
+  .login-logo {
+      /* ... */ max-width: 100px; height: auto; margin-bottom: 10px;
+  }
+  /* ... (Include all other specific .login-* styles from the previous CSS) ... */
+
+  /* (Add this to your existing style.css) */
+
+/* Style for 'active' link in Nav Bar */
+.nav-links a.active {
+    color: white;
+    font-weight: 600;
+    border-bottom-color: white; /* Or a distinct accent color */
+}
+
+/* Add styles for Dashboard Summary if needed */
+.dashboard-summary h2 {
+    border-bottom: none; /* Remove border if not needed here */
+    margin-bottom: 30px;
+}
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid */
+    gap: 25px;
+    margin-bottom: 30px;
+}
+.summary-item {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: var(--border-radius-md);
+    text-align: center;
+    border: 1px solid #eee;
+    box-shadow: var(--shadow-light);
+}
+.summary-item h3 {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    color: var(--text-color-light);
+}
+.summary-item p {
+    font-size: 1.8em;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin: 0;
+}
+.quick-links h3 {
+     margin-bottom: 15px;
+     text-align: center;
+     font-size: 1.2em;
+}
+.quick-links {
+    text-align: center;
+    margin-top: 20px;
+}
+.quick-link-btn {
+    margin: 5px 10px;
+}

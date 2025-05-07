@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Log - Elite Footwear</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        /* Authentication Check */
+        if (sessionStorage.getItem('isLoggedIn_EliteFootwear') !== 'true') {
+            window.location.replace('login.html');
+        }
+    </script>
+    <style>
+        /* Basic Styling - You should have more in your style.css */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .top-nav {
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .nav-brand a {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8em;
+            text-decoration: none;
+            color: white;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            background-color: #34495e;
+        }
+
+        .nav-logout button {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-logout button:hover {
+            background-color: #c0392b;
+        }
+
+        .main-content {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 20px auto;
+        }
+
+        .card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .sales-log-card h2 {
+            color: #333;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .section-icon {
+            font-size: 1.2em;
+        }
+
+        #sales-summary {
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-left: 5px solid #3498db;
+            border-radius: 4px;
+        }
+
+        #sales-log-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        #sales-log-table th, #sales-log-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        #sales-log-table th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        #sales-log-body tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        #no-sales-log-entry td {
+            font-style: italic;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="nav-container">
+            <div class="nav-brand"><a href="dashboard.html">Elite Footwear</a></div>
+            <div class="nav-links">
+                <a href="dashboard.html">Dashboard</a>
+                <a href="manage_stock.html">Manage Stock</a>
+                <a href="record_sale.html">Record Sale</a>
+                <a href="view_stock.html">View Stock</a>
+                <a href="sales_log.html" class="active">Sales Log</a>
+            </div>
+            <div class="nav-logout"><button id="logout-btn">Logout</button></div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <section id="sales-log-section" class="card sales-log-card">
+            <h2><span class="section-icon">📊</span> Sales Log</h2>
+            <div id="sales-summary">
+                <strong>Total Sales Revenue: BDT <span id="total-sales-revenue">0.00</span></strong>
+            </div>
+
+            <table id="sales-log-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Product Name</th>
+                        <th>Quantity</th>
+                        <th>Price per Unit (BDT)</th>
+                        <th>Total Price (BDT)</th>
+                        <th>Buyer Name</th>
+                    </tr>
+                </thead>
+                <tbody id="sales-log-body">
+                    <tr id="no-sales-log-entry">
+                        <td colspan="6" style="text-align: center;">No sales recorded yet. Record sales via the 'Record Sale' page.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const logoutBtn = document.getElementById('logout-btn');
+            const salesLogBody = document.getElementById('sales-log-body');
+            const totalSalesRevenueSpan = document.getElementById('total-sales-revenue');
+            const noSalesEntryRow = document.getElementById('no-sales-log-entry');
+
+            // Logout functionality
+            logoutBtn.addEventListener('click', function() {
+                sessionStorage.removeItem('isLoggedIn_EliteFootwear');
+                window.location.replace('login.html');
+            });
+
+            // Function to load sales data
+            function loadSalesData() {
+                const salesData = localStorage.getItem('salesLog_EliteFootwear');
+                let sales = salesData ? JSON.parse(salesData) : [];
+
+                // Sort sales data by date (newest first)
+                sales.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp)); // Changed 'date' to 'timestamp' to match your script.js
+
+                let totalRevenue = 0;
+
+                // Clear existing table rows
+                salesLogBody.innerHTML = '';
+
+                if (sales.length > 0) {
+                    noSalesEntryRow.style.display = 'none';
+                    sales.forEach(sale => {
+                        const row = salesLogBody.insertRow();
+                        const dateCell = row.insertCell();
+                        const productCell = row.insertCell();
+                        const quantityCell = row.insertCell();
+                        const pricePerUnitCell = row.insertCell();
+                        const totalPriceCell = row.insertCell();
+                        const buyerNameCell = row.insertCell();
+
+                        dateCell.textContent = new Date(sale.timestamp).toLocaleDateString(); // Format the timestamp to a readable date
+                        productCell.textContent = sale.name; // Assuming 'name' contains the product name
+                        quantityCell.textContent = sale.qty;   // Assuming 'qty' contains the quantity sold
+                        pricePerUnitCell.textContent = parseFloat(sale.price).toFixed(2); // Assuming 'price' contains the unit price
+                        totalPriceCell.textContent = (parseFloat(sale.price) * parseInt(sale.qty)).toFixed(2); // Calculate total price
+                        buyerNameCell.textContent = sale.buyerName || 'N/A'; // You might need to add buyer name in your record sale logic
+
+                        totalRevenue += parseFloat(sale.price) * parseInt(sale.qty);
+                    });
+                } else {
+                    noSalesEntryRow.style.display = '';
+                }
+
+                totalSalesRevenueSpan.textContent = totalRevenue.toFixed(2);
+            }
+
+            // Load sales data when the page loads
+            loadSalesData();
+        });
+    </script>
+</body>
+</html>

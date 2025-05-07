@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Stock - Elite Footwear</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script> /* Authentication Check */ if (sessionStorage.getItem('isLoggedIn_EliteFootwear') !== 'true') { window.location.replace('login.html'); } </script>
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="nav-container">
+             <div class="nav-brand"><a href="dashboard.html">Elite Footwear</a></div>
+            <div class="nav-links">
+                <a href="dashboard.html">Dashboard</a>
+                <a href="manage_stock.html" class="active">Manage Stock</a> <a href="record_sale.html">Record Sale</a>
+                <a href="view_stock.html">View Stock</a>
+                <a href="sales_log.html">Sales Log</a>
+            </div>
+             <div class="nav-search" style="visibility: hidden;"> <input type="search" placeholder="Search stock...">
+             </div>
+            <div class="nav-logout"><button id="logout-btn">Logout</button></div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <section id="manage-stock-section" class="card manage-stock-card">
+            <h2><span class="section-icon">📦</span> Add or Update Footwear Stock</h2>
+            <p>Enter details below. If the Style/Model and Size already exist, the quantity will be added, and Price/Supplier will be updated.</p>
+             <div>
+                 <label for="item-name">Style/Model Name:</label>
+                 <input type="text" id="item-name" placeholder="e.g., Oxford Classic" required>
+             </div>
+             <div>
+                 <label for="item-size">Size:</label>
+                 <input type="text" id="item-size" placeholder="e.g., UK 9 / EU 43" required>
+             </div>
+             <div>
+                 <label for="item-qty">Quantity to Add:</label>
+                 <input type="number" id="item-qty" placeholder="e.g., 10" required min="1">
+             </div>
+             <div>
+                 <label for="item-price">Unit Price (BDT):</label>
+                 <input type="number" id="item-price" step="0.01" placeholder="e.g., 4500.00" required min="0">
+             </div>
+             <div>
+                 <label for="item-supplier">Supplier/Importer:</label>
+                 <input type="text" id="item-supplier" placeholder="e.g., Premium Leathers Co." required>
+             </div>
+             <button id="add-stock-btn" class="action-button">Add/Update Stock</button>
+             <div id="add-stock-message" class="message"></div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

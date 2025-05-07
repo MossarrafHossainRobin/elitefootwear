@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Record Sale - Elite Footwear</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script> /* Authentication Check */ if (sessionStorage.getItem('isLoggedIn_EliteFootwear') !== 'true') { window.location.replace('login.html'); } </script>
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="nav-container">
+            <div class="nav-brand"><a href="dashboard.html">Elite Footwear</a></div>
+            <div class="nav-links">
+                <a href="dashboard.html">Dashboard</a>
+                <a href="manage_stock.html">Manage Stock</a>
+                <a href="record_sale.html" class="active">Record Sale</a> <a href="view_stock.html">View Stock</a>
+                <a href="sales_log.html">Sales Log</a>
+            </div>
+             <div class="nav-search" style="visibility: hidden;"> <input type="search" placeholder="Search stock...">
+             </div>
+            <div class="nav-logout"><button id="logout-btn">Logout</button></div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+         <section id="record-sale-section" class="card record-sale-card">
+            <h2><span class="section-icon">🛒</span> Record Sale</h2>
+            <p>Select an item currently in stock and enter the quantity sold.</p>
+            <div>
+                <label for="sale-item-select">Item (Style - Size):</label>
+                <select id="sale-item-select" required>
+                    <option value="">-- Select Item --</option>
+                    </select>
+            </div>
+            <div>
+                <label for="sale-qty">Quantity Sold:</label>
+                <input type="number" id="sale-qty" placeholder="e.g., 1" required min="1">
+            </div>
+            <button id="record-sale-btn" class="action-button">Record Sale</button>
+            <div id="sale-message" class="message"></div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
