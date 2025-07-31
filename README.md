@@ -81,16 +81,15 @@
 <div>
   <h2>🚀 Getting Started</h2>
   <ol>
-    <li>Clone the repository:<br />
-      <pre style="background:#f4f4f4; padding:10px; border-radius:5px;">git clone https://github.com/MossarrafHossainRobin/elitefootwear.git</pre>
+    <li>Clone this repository to your local machine:
+      <pre><code>git clone https://github.com/MossarrafHossainRobin/elitefootwear.git</code></pre>
     </li>
-    <li>Install and run a local PHP server environment (XAMPP, WAMP, Laragon, etc.).</li>
-    <li>Place the project files inside the server root folder (e.g., <code>htdocs</code>).</li>
-    <li>Open <code>http://localhost/index.php</code> in your browser.</li>
-    <li>Register an employee account and start managing inventory and sales.</li>
+    <li>Install and run a local server environment (e.g., <strong>XAMPP</strong>, <strong>WAMP</strong>, or <strong>Laragon</strong>).</li>
+    <li>Place the project files in the server root directory (e.g., <code>htdocs</code>).</li>
+    <li>Navigate to <code>http://localhost/index.php</code> in your browser.</li>
+    <li>Register a new employee account and begin using the system features.</li>
   </ol>
 </div>
-
 <hr />
 
 <div>
