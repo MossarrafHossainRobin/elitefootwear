@@ -94,25 +94,26 @@
 
 <div>
   <h2>📁 Project File Structure</h2>
-  <pre style="background:#f4f4f4; padding:10px; border-radius:5px;">
+  <pre style="background:#f4f4f4; padding:10px; border-radius:5px; font-family: monospace;">
 elitefootwear/
-├── add-product.php          # Logic to add new products
-├── dashboard.php            # Admin panel with data overview
-├── elite.png                # Logo/image asset
-├── employee_page.html       # Employee specific dashboard
-├── index.php                # Entry point & login handler
-├── login.html               # Login form UI
-├── login.js                 # Login validation & interactivity
-├── manage_stock.html        # Stock update interface
-├── products.json            # JSON-based product data
-├── record_sale.html         # Form to log sales
-├── register.html            # Employee registration
-├── sales_log.html           # Sales history & reports
-├── script.js                # General JS utilities
-├── style.css                # Stylesheet
-└── view_stock.html          # Stock overview
+├── <a href="add-product.php">add-product.php</a>          # Logic to add new products
+├── <a href="dashboard.php">dashboard.php</a>            # Admin panel with data overview
+├── <a href="elite.png">elite.png</a>                # Logo/image asset
+├── <a href="employee_page.html">employee_page.html</a>       # Employee specific dashboard
+├── <a href="index.php">index.php</a>                # Entry point & login handler
+├── <a href="login.html">login.html</a>               # Login form UI
+├── <a href="login.js">login.js</a>                 # Login validation & interactivity
+├── <a href="manage_stock.html">manage_stock.html</a>        # Stock update interface
+├── <a href="products.json">products.json</a>            # JSON-based product data
+├── <a href="record_sale.html">record_sale.html</a>         # Form to log sales
+├── <a href="register.html">register.html</a>            # Employee registration
+├── <a href="sales_log.html">sales_log.html</a>           # Sales history & reports
+├── <a href="script.js">script.js</a>                # General JS utilities
+├── <a href="style.css">style.css</a>                # Stylesheet
+└── <a href="view_stock.html">view_stock.html</a>          # Stock overview
   </pre>
 </div>
+
 
 <hr />
 
